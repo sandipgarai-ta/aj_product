@@ -24,6 +24,8 @@ public class Product {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	private Integer ppid;
+	@Column(name="position",columnDefinition="int(10) default 0")
+	private Integer position;
 	private String name;
 	private String topic;
 	private String description;
@@ -149,12 +151,20 @@ public class Product {
 		this.children = children;
 	}
 
+	public Integer getPosition() {
+		return position;
+	}
+
+	public void setPosition(Integer position) {
+		this.position = position;
+	}
+
 	@Override
 	public String toString() {
-		return "Product [id=" + id + ", ppid=" + ppid + ", name=" + name + ", topic=" + topic + ", description="
-				+ description + ", image=" + image + ", url=" + url + ", meta_title=" + meta_title + ", meta_key="
-				+ meta_key + ", meta_descr=" + meta_descr + ", createdDate=" + createdDate + ", updatedDate="
-				+ updatedDate + ", children=" + children + "]";
+		return "Product [id=" + id + ", ppid=" + ppid + ", position=" + position + ", name=" + name + ", topic=" + topic
+				+ ", description=" + description + ", image=" + image + ", url=" + url + ", meta_title=" + meta_title
+				+ ", meta_key=" + meta_key + ", meta_descr=" + meta_descr + ", createdDate=" + createdDate
+				+ ", updatedDate=" + updatedDate + ", children=" + children + "]";
 	}
-	
+
 }

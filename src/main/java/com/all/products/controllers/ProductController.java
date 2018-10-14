@@ -1,5 +1,6 @@
 package com.all.products.controllers;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,7 @@ public class ProductController {
 	ProductService productService;
 	
 	@GetMapping
-	public @ResponseBody List<Product> getAll() {
+	public @ResponseBody Product getAll() {
 		return productService.getTree();
 	}
 }

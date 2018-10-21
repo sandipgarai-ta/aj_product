@@ -80,4 +80,9 @@ public class ProductService {
 	    
 	    return children;
 	}
+
+	public List<Product> getSpecialized() {
+		// TODO Auto-generated method stub
+		return productRepository.getSpecilaized();
+	}
 }

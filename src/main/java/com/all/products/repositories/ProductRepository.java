@@ -13,4 +13,7 @@ public interface ProductRepository extends CrudRepository<Product, Integer> {
 	
 	@Query("from Product order by position desc")
 	public List<Product> findAll();
+
+	@Query("from Product where specialized=1")
+	public List<Product> getSpecilaized();
 }

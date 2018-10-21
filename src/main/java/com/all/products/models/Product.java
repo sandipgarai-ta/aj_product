@@ -15,10 +15,18 @@ import javax.persistence.Transient;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.beans.factory.annotation.Value;
 
 @Entity
 @Table(name="product")
 public class Product {
+	@Transient
+	@Value("${mib.smicon.url.prefix}")
+	private String smUrl="http://demo.myindianbanker.com/sm_icons/";
+	@Transient
+	@Value("${mib.lgicon.url.prefix}")
+	private String lgUrl="http://demo.myindianbanker.com/lg_icons/";
+	
 	@Id
 	@Column(name="id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -34,6 +42,12 @@ public class Product {
 	private String meta_title;
 	private String meta_key;
 	private String meta_descr;
+	
+	private String smIcon;
+	private String lgIcon;
+	
+	@Column(name="specialized",columnDefinition="int(10) default 0")
+	private int specialized;
 	
 	@CreationTimestamp
 	@Temporal(TemporalType.DATE)
@@ -159,12 +173,42 @@ public class Product {
 		this.position = position;
 	}
 
+	public String getSmIcon() {
+		if(smIcon!=null)
+			return smUrl+smIcon;
+		else 
+			return null;
+	}
+
+	public void setSmIcon(String smIcon) {
+		this.smIcon = smIcon;
+	}
+
+	public String getLgIcon() {
+		if(lgIcon!=null)
+			return lgUrl+lgIcon;
+		else 
+			return null;
+	}
+
+	public void setLgIcon(String lgIcon) {
+		this.lgIcon = lgIcon;
+	}
+
+	public int getSpecialized() {
+		return specialized;
+	}
+
+	public void setSpecialized(int specialized) {
+		this.specialized = specialized;
+	}
+
 	@Override
 	public String toString() {
 		return "Product [id=" + id + ", ppid=" + ppid + ", position=" + position + ", name=" + name + ", topic=" + topic
 				+ ", description=" + description + ", image=" + image + ", url=" + url + ", meta_title=" + meta_title
-				+ ", meta_key=" + meta_key + ", meta_descr=" + meta_descr + ", createdDate=" + createdDate
-				+ ", updatedDate=" + updatedDate + ", children=" + children + "]";
+				+ ", meta_key=" + meta_key + ", meta_descr=" + meta_descr + ", smIcon=" + smIcon + ", lgIcon=" + lgIcon
+				+ ", specialized=" + specialized + ", createdDate=" + createdDate + ", updatedDate=" + updatedDate
+				+ ", children=" + children + "]";
 	}
-
 }

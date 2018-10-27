@@ -1,11 +1,10 @@
 package com.all.products.controllers;
 
-import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -14,6 +13,7 @@ import com.all.products.models.Product;
 import com.all.products.services.ProductService;
 
 @Controller
+@CrossOrigin(origins = "*")
 @RequestMapping(value="/products")
 public class ProductController {
 	

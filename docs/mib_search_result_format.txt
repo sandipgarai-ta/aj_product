@@ -1,0 +1,22 @@
+[
+	{
+		"id":"",
+		"bank_name":"SBI",
+		"logo_url": "www.mib.com/bank_img/sbi.jpg",
+		"rating":"4",
+		"processing_fees":"1000-3000",
+		"interest_rate":"10.05% - 17.%",
+		"loan_amt":"1L - 1Cr.",
+		"tenure":"5years - 10 years"
+	},
+	{
+		"id":"",
+		"bank_name":"HDFC",
+		"logo_url": "www.mib.com/bank_img/hdfc.jpg",
+		"rating":"4",
+		"processing_fees":"1000-3000",
+		"interest_rate":"10.05% - 17.%",
+		"loan_amt":"1L - 1Cr.",
+		"tenure":"5years - 10 years"
+	}
+]

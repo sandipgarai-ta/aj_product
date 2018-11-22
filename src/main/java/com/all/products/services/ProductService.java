@@ -85,4 +85,8 @@ public class ProductService {
 		// TODO Auto-generated method stub
 		return productRepository.getSpecilaized();
 	}
+
+	public List<Product> getChildrenByPid(int id) {
+		return productRepository.getChildren(id);
+	}
 }

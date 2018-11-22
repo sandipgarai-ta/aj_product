@@ -16,4 +16,7 @@ public interface ProductRepository extends CrudRepository<Product, Integer> {
 
 	@Query("from Product where specialized=1")
 	public List<Product> getSpecilaized();
+
+	@Query("select p from Product p where p.ppid=?1 order by position desc")
+	public List<Product> getChildren(int id);
 }

@@ -39,6 +39,7 @@ public class Product {
 	private String description;
 	private String image;
 	private String url;
+	private String seoUrl;
 	private String meta_title;
 	private String meta_key;
 	private String meta_descr;
@@ -203,12 +204,38 @@ public class Product {
 		this.specialized = specialized;
 	}
 
+	public String getSmUrl() {
+		return smUrl;
+	}
+
+	public void setSmUrl(String smUrl) {
+		this.smUrl = smUrl;
+	}
+
+	public String getLgUrl() {
+		return lgUrl;
+	}
+
+	public void setLgUrl(String lgUrl) {
+		this.lgUrl = lgUrl;
+	}
+
+	public String getSeoUrl() {
+		return seoUrl;
+	}
+
+	public void setSeoUrl(String seoUrl) {
+		this.seoUrl = seoUrl;
+	}
+
 	@Override
 	public String toString() {
-		return "Product [id=" + id + ", ppid=" + ppid + ", position=" + position + ", name=" + name + ", topic=" + topic
-				+ ", description=" + description + ", image=" + image + ", url=" + url + ", meta_title=" + meta_title
-				+ ", meta_key=" + meta_key + ", meta_descr=" + meta_descr + ", smIcon=" + smIcon + ", lgIcon=" + lgIcon
-				+ ", specialized=" + specialized + ", createdDate=" + createdDate + ", updatedDate=" + updatedDate
-				+ ", children=" + children + "]";
+		return "Product [smUrl=" + smUrl + ", lgUrl=" + lgUrl + ", id=" + id + ", ppid=" + ppid + ", position="
+				+ position + ", name=" + name + ", topic=" + topic + ", description=" + description + ", image=" + image
+				+ ", url=" + url + ", seoUrl=" + seoUrl + ", meta_title=" + meta_title + ", meta_key=" + meta_key
+				+ ", meta_descr=" + meta_descr + ", smIcon=" + smIcon + ", lgIcon=" + lgIcon + ", specialized="
+				+ specialized + ", createdDate=" + createdDate + ", updatedDate=" + updatedDate + ", children="
+				+ children + "]";
 	}
+	
 }

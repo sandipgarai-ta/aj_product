@@ -82,7 +82,6 @@ public class ProductService {
 	}
 
 	public List<Product> getSpecialized() {
-		// TODO Auto-generated method stub
 		return productRepository.getSpecilaized();
 	}
 

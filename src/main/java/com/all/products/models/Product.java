@@ -17,8 +17,11 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.beans.factory.annotation.Value;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
-@Table(name="product")
+@Table(name="mib_products")
+@JsonIgnoreProperties(value= {"smUrl","lgUrl"})
 public class Product {
 	@Transient
 	@Value("${mib.smicon.url.prefix}")
@@ -61,6 +64,12 @@ public class Product {
 	
 	@Transient
 	private List<Product> children;
+	
+	private Integer isDeleted;
+	private Integer companyId;
+	
+	private String offerTitle;
+	private String offerDetails;
 
 	public Integer getId() {
 		return id;
@@ -228,6 +237,38 @@ public class Product {
 		this.seoUrl = seoUrl;
 	}
 
+	public Integer getIsDeleted() {
+		return isDeleted;
+	}
+
+	public void setIsDeleted(Integer isDeleted) {
+		this.isDeleted = isDeleted;
+	}
+
+	public Integer getCompanyId() {
+		return companyId;
+	}
+
+	public void setCompanyId(Integer companyId) {
+		this.companyId = companyId;
+	}
+
+	public String getOfferTitle() {
+		return offerTitle;
+	}
+
+	public void setOfferTitle(String offerTitle) {
+		this.offerTitle = offerTitle;
+	}
+
+	public String getOfferDetails() {
+		return offerDetails;
+	}
+
+	public void setOfferDetails(String offerDetails) {
+		this.offerDetails = offerDetails;
+	}
+
 	@Override
 	public String toString() {
 		return "Product [smUrl=" + smUrl + ", lgUrl=" + lgUrl + ", id=" + id + ", ppid=" + ppid + ", position="
@@ -235,7 +276,8 @@ public class Product {
 				+ ", url=" + url + ", seoUrl=" + seoUrl + ", meta_title=" + meta_title + ", meta_key=" + meta_key
 				+ ", meta_descr=" + meta_descr + ", smIcon=" + smIcon + ", lgIcon=" + lgIcon + ", specialized="
 				+ specialized + ", createdDate=" + createdDate + ", updatedDate=" + updatedDate + ", children="
-				+ children + "]";
+				+ children + ", isDeleted=" + isDeleted + ", companyId=" + companyId + ", offerTitle=" + offerTitle
+				+ ", offerDetails=" + offerDetails + "]";
 	}
 	
 }

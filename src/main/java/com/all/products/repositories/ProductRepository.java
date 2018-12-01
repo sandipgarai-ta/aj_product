@@ -11,7 +11,7 @@ import com.all.products.models.Product;
 @Repository
 public interface ProductRepository extends CrudRepository<Product, Integer> {
 	
-	@Query("from Product order by position desc")
+	@Query("from Product where isDeleted=0 order by position desc")
 	public List<Product> findAll();
 
 	@Query("from Product where specialized=1")

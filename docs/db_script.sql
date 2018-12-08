@@ -1,38 +1,31 @@
-create table product_category ( 
-	p_cat_id INT(100) PRIMARY KEY auto_increment, 
-	p_cat_code varchar(255) unique,
-	dt_create TIMESTAMP DEFAULT CURRENT_TIMESTAMP, 
-	dt_modify TIMESTAMP DEFAULT CURRENT_TIMESTAMP on UPDATE CURRENT_TIMESTAMP, 
-	category_name VARCHAR(255),
-	is_active INT(10) DEFAULT 1 
+/* package organization table column */
+create table package_organization (
+	p_org_id INT(100) PRIMARY KEY AUTO_INCREMENT,
+	DT_CREATE TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	DT_UPDATE TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	organization_name VARCHAR(255) default NULL,
+	organization_rating INT(5) DEFAULT 3,
+	email_id VARCHAR(255) DEFAULT NULL,
+	password VARCHAR(255) DEFAULT NULL,
+	IS_ACTIVE INT(10) DEFAULT 1
 );
-drop table product_category;
+ALTER TABLE package_organization ADD COLUMN logo_big VARCHAR(255) after password;
+ALTER TABLE package_organization ADD COLUMN logo_sm VARCHAR(255) after password;
 
-
-insert into product_category (p_cat_code,category_name) values ('CT1', 'Tax');
-insert into product_category (p_cat_code,category_name) values ('CT2', 'Legal');
-insert into product_category (p_cat_code,category_name) values ('CT3', 'Valuation');
-
-
-
-insert into product_category (p_cat_code,category_name) values ('CT4', 'Property');
-insert into product_category (p_cat_code,category_name) values ('CT5', 'Loan');
-insert into product_category (p_cat_code,category_name) values ('CT6', 'Insvestment');
-insert into product_category (p_cat_code,category_name) values ('CT7', 'Insurance');
-
-select
-*
-from product_category
-;
-
-
-insert into product_category (p_cat_code,category_name) values ('CT4', 'Property');
-insert into product_category (p_cat_code,category_name) values ('CT5', 'Loan');
-insert into product_category (p_cat_code,category_name) values ('CT6', 'Insvestment');
-insert into product_category (p_cat_code,category_name) values ('CT7', 'Insurance');
-
-drop table product_category;
-insert into product_category (p_cat_code,category_name) values ('CT4', 'Property');
-insert into product_category (p_cat_code,category_name) values ('CT5', 'Loan');
-insert into product_category (p_cat_code,category_name) values ('CT6', 'Insvestment');
-insert into product_category (p_cat_code,category_name) values ('CT7', 'Insurance');
+/* package table query */
+create table package (
+	PACKAGE_ID INT(100) PRIMARY KEY AUTO_INCREMENT,
+	DT_CREATE TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	DT_UPDATE TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	PACKAGE_NAME VARCHAR(255) default NULL,
+	PRODUCT_ID INT(5) DEFAULT 3,
+	ORGANIZATION_ID INT(100) DEFAULT NULL,
+	RATING INT(5) DEFAULT NULL,
+	PROCESSING_FEES VARCHAR(255) DEFAULT NULL,
+	EMI VARCHAR(255) DEFAULT NULL,
+	MAX_LOAN_AMT VARCHAR(255) DEFAULT NULL,
+	TENURE VARCHAR(255) DEFAULT NULL,
+	IS_ACTIVE INT(10) DEFAULT 1,
+	FOREIGN KEY (PRODUCT_ID) REFERENCES product(id),
+	FOREIGN KEY (ORGANIZATION_ID) REFERENCES package_organization(p_org_id)
+);

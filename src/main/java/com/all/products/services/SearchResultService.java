@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.all.products.models.PackageOrganization;
 import com.all.products.models.ProductPackage;
 
 /**
@@ -17,5 +18,9 @@ import com.all.products.models.ProductPackage;
 public interface SearchResultService {
 	
 	public List<ProductPackage> findPackageByProductId(Long productId );
+	
+	
+	public List<PackageOrganization> getAllActiveVendor();
+	public PackageOrganization saveVendor(PackageOrganization vendor);
 
 }

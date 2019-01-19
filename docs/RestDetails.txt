@@ -1,0 +1,55 @@
+
+
+#################################################################################
+URL=http://localhost:8089/allproducts/vendor-management/getallactivevendor
+
+RESPONSE=
+{
+    "staus": 101,
+    "msg": "Total record found= 2",
+    "data": [
+        {
+            "dtCreate": 1544035401000,
+            "dtUpdate": 1544035428000,
+            "organizationName": "TaxAssist",
+            "organizationRating": 4,
+            "emailId": "info@taxassist.in",
+            "password": "123456",
+            "logoSm": null,
+            "logoBig": null,
+            "isActive": 1,
+            "porgId": 1
+        },
+        {
+            "dtCreate": 1546674666000,
+            "dtUpdate": 1546674666000,
+            "organizationName": "State Bank of India",
+            "organizationRating": 5,
+            "emailId": "sandip.garai.ta@gmail.com",
+            "password": "123456",
+            "logoSm": "sbi.png",
+            "logoBig": "sbi.png",
+            "isActive": 1,
+            "porgId": 2
+        }
+    ]
+}
+#####################################################################################
+
+
+
+
+
+#####################################################################################
+URL=http://localhost:8089/allproducts/vendor-management/save-vendor
+
+REQUEST=
+{
+	"organizationName":"HDFC",
+	"organizationRating":"4",
+	"emailId":"aaaa@aaaa.com",
+	"password":"aaaaaaaaa"
+}
+
+RESPONSE=
+

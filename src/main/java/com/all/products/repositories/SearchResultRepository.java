@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import com.all.products.models.PackageOrganization;
 import com.all.products.models.ProductPackage;
 
 
@@ -15,5 +16,7 @@ public interface SearchResultRepository extends JpaRepository<ProductPackage, Lo
 	
 	@Query("SELECT package FROM ProductPackage package WHERE package.productId = :productId ")
 	List<ProductPackage> searchPackage(@Param("productId") Long productId);
+	
+	
 
 }

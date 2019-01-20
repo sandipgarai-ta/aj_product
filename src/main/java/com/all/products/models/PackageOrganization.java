@@ -27,7 +27,7 @@ public class PackageOrganization implements java.io.Serializable {
 	private String password;
 	private String logoSm;
 	private String logoBig;
-	private long isActive;
+	private long isActive=1;
 
 	public PackageOrganization() {
 	}

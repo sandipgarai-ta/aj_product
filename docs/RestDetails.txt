@@ -53,3 +53,37 @@ REQUEST=
 
 RESPONSE=
 
+
+=> GET VENDOR PRODUCTS RESPECT TO A PRODUCT ID ===========================================
+URL= http://localhost:8089/allproducts/vendor-management/products/174
+METHOD=GET
+
+RESPONSE=
+[
+    {
+        "packageId": 4,
+        "dtCreate": 1546685037000,
+        "dtUpdate": 1546685037000,
+        "packageName": "SBI Education",
+        "productId": 174,
+        "organization": {
+            "dtCreate": 1546674666000,
+            "dtUpdate": 1546674666000,
+            "organizationName": "State Bank of Indiaa",
+            "organizationRating": 5,
+            "emailId": "sandip.garai.ta@gmail.com",
+            "password": "123456",
+            "logoSm": "sbi.png",
+            "logoBig": "sbi.png",
+            "isActive": 1,
+            "porgId": 2
+        },
+        "rating": 4,
+        "processingFees": "2000-5000",
+        "emi": "2000-5000",
+        "maxLoanAmt": "500000",
+        "tenure": "2Yrs - 5 Yrs.",
+        "isActive": 1
+    }
+]
+

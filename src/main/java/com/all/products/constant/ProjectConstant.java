@@ -9,7 +9,7 @@ package com.all.products.constant;
  */
 public class ProjectConstant {
 	
-	public static int HTTP_STATUS_NEW=101;
-	public static int HTTP_STATUS_NEW_FAILED=100;
+	public static final int HTTP_STATUS_NEW=101;
+	public static final int HTTP_STATUS_NEW_FAILED=100;
 
 }

@@ -15,12 +15,14 @@ import com.all.products.models.ProductPackage;
  *
  */
 @Service
-public interface SearchResultService {
+public interface VendorManagementService {
 	
 	public List<ProductPackage> findPackageByProductId(Long productId );
 	
 	
 	public List<PackageOrganization> getAllActiveVendor();
 	public PackageOrganization saveVendor(PackageOrganization vendor);
+	public ProductPackage saveVendorProduct(ProductPackage vendorProduct);
+	
 
 }

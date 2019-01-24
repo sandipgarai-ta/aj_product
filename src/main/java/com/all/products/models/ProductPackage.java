@@ -66,6 +66,9 @@ public class ProductPackage implements java.io.Serializable {
 	@Column(name = "IS_ACTIVE")
 	private long isActive;
 	
+	@Transient
+	private long orgIdTemp;
+	
 	
 	
 	//constructor
@@ -190,4 +193,14 @@ public class ProductPackage implements java.io.Serializable {
 	public void setIsActive(long isActive) {
 		this.isActive = isActive;
 	}
+
+	public long getOrgId() {
+		return orgIdTemp;
+	}
+
+	public void setOrgId(long orgId) {
+		this.orgIdTemp = orgId;
+	}
+	
+	
 }

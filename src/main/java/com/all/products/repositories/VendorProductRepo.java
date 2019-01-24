@@ -12,7 +12,7 @@ import com.all.products.models.ProductPackage;
 
 
 @Repository
-public interface SearchResultRepository extends JpaRepository<ProductPackage, Long> {
+public interface VendorProductRepo extends JpaRepository<ProductPackage, Long> {
 	
 	@Query("SELECT package FROM ProductPackage package WHERE package.productId = :productId ")
 	List<ProductPackage> searchPackage(@Param("productId") Long productId);

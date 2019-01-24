@@ -5,23 +5,23 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.all.products.dao.SearchResultDao;
+import com.all.products.dao.VendorManagementDao;
 import com.all.products.models.PackageOrganization;
 import com.all.products.models.ProductPackage;
-import com.all.products.repositories.SearchResultRepository;
+import com.all.products.repositories.VendorProductRepo;
 import com.all.products.repositories.VendorRepositories;
 
 @Component
-public class SearchResultDaoImpl implements SearchResultDao {
+public class VendorManagementDaoImpl implements VendorManagementDao {
 	
 	@Autowired
-	SearchResultRepository searchResultRepository;
+	VendorProductRepo vendorProductRepo;
 	
 	@Autowired
 	VendorRepositories vendorRepo;
 	
 	public List<ProductPackage> findPackageByProductId(Long productId){
-		return this.searchResultRepository.searchPackage(productId);
+		return this.vendorProductRepo.searchPackage(productId);
 	}
 
 	@Override
@@ -34,6 +34,14 @@ public class SearchResultDaoImpl implements SearchResultDao {
 	@Override
 	public PackageOrganization saveVendor(PackageOrganization vendor) {
 		return vendorRepo.save(vendor);
+	}
+
+	
+	//to save a vendor product
+	@Override
+	public ProductPackage saveVendorProduct(ProductPackage vendorProduct) {
+		return this.vendorProductRepo.save(vendorProduct);
+		//return null;
 	}
 	
 }

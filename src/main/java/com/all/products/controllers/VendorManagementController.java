@@ -10,11 +10,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.all.products.models.PackageOrganization;
+import com.all.products.models.ProductPackage;
 
 @CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/vendor-management")
-public interface PackageController {
+public interface VendorManagementController {
 	
 	@GetMapping("/products/{productId}")
 	ResponseEntity getPackagesOfTheProduct(@PathVariable("productId") Long productId);
@@ -24,5 +25,17 @@ public interface PackageController {
 	
 	@PostMapping("/save-vendor")
 	ResponseEntity saveVendor(@RequestBody PackageOrganization vendor);
+	
+	
+	
+	  /**
+	   * responsible to save a product of a vendor
+	   * 
+	   * @param vendorProduct 
+	   * 
+	   * @author Sandip
+	  */
+	@PostMapping("/add-vendor-product")
+	ResponseEntity addVendorProduct(@RequestBody ProductPackage vendorProduct) ;
 
 }
